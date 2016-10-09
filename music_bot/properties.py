@@ -11,11 +11,20 @@ class Properties(configparser.ConfigParser):
   def get_discord_token(self):
     return self['Discord']['Token']
 
+  def get_discord_command_prefix(self):
+    return self['Discord']['CommandPrefix']
+
   def get_youtube_token(self):
     return self['Youtube']['Token']
 
   def get_youtube_max_results(self):
     return self['Youtube']['MaxResults']
+
+  def get_youtube_region_code(self):
+    return self['Youtube']['RegionCode']
+
+  def get_youtube_video_category_id(self):
+    return self['Youtube']['VideoCategoryId']
 
 # Create Singleton Instance
 properties = None
