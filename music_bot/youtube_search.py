@@ -30,3 +30,5 @@ class YoutubeSearch():
     for video in search_results.get('items'):
       videos.append(YoutubeVideo(video))
     return videos
+
+youtube = YoutubeSearch()
