@@ -25,7 +25,7 @@ class Jukebox:
       return (isinstance(message.content, int) and 1 <= message.content and response_count >= message.content)
 
     index = await self.bot.wait_for_message(timeout=5.0, author=ctx.message.author, check=isValidQueryResponse)
-    playlist.enqueue(videos[index])
+    # playlist.enqueue(videos[index])
     await self.bot.say('\'%s\' was added to the playlist' % (videos[index].title))
 
 def setup(bot):
