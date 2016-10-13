@@ -1,6 +1,6 @@
 from apiclient.discovery import build
 from .properties import properties
-from .youtube_video import YoutubeVideo
+from .model.youtube_video import YoutubeVideo
 
 YOUTUBE_API_SERVICE_NAME = 'youtube'
 YOUTUBE_API_VERSION = 'v3'
@@ -28,7 +28,11 @@ class YoutubeSearch():
   def __search_results_to_video_array(self, search_results):
     videos = []
     for video in search_results.get('items'):
-      videos.append(YoutubeVideo(video))
+      videos.append({
+        'title': video['snippet']['title'],
+        'youtube_id': video['id']['videoId'],
+        'url': 'https://www.youtube.com/watch?v=%s' % (video['id']['videoId'])
+      })
     return videos
 
 youtube = YoutubeSearch()

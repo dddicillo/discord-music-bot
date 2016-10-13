@@ -1,10 +1,15 @@
 import discord
 from discord.ext import commands
 from .properties import properties
+from .database import db
 
 extensions = [
   'jukebox'
 ]
+
+# Initialize DB
+db.connect()
+db.create_schema()
 
 # Initialize Bot
 print('Initializing...')

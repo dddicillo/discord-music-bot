@@ -26,6 +26,9 @@ class Properties(configparser.ConfigParser):
   def get_youtube_video_category_id(self):
     return self['Youtube']['VideoCategoryId']
 
+  def get_db_name(self):
+    return self['Database']['Name']
+
 # Create Singleton Instance
 properties = None
 try:
@@ -33,5 +36,3 @@ try:
 except ValueError as err:
   print(err)
   sys.exit(1)
-
-

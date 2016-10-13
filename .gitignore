@@ -2,3 +2,4 @@
 **/*.pyc
 **/__pycache__/
 conf/music_bot.ini
+*.db
