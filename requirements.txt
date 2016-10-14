@@ -2,7 +2,6 @@ aiohttp==1.0.3
 async-timeout==1.0.0
 cffi==1.8.3
 chardet==2.3.0
-command-not-found==0.3
 configparser==3.5.0
 discord.py==0.13.0
 google-api-python-client==1.5.3
