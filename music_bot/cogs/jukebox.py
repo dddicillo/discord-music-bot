@@ -9,7 +9,7 @@ class Jukebox:
     self.bot = bot
 
   @commands.command(pass_context=True, description='Search for a song to add to the playlist')
-  async def play(self, ctx, query : str):
+  async def search(self, ctx, query : str):
     """Search for a song to add to the playlist"""
     global response_count
     videos = youtube.search(query)
@@ -39,6 +39,16 @@ class Jukebox:
   async def list(self):
     """Display the playlist in chat"""
     await self.bot.say(playlist.toString())
+
+  @commands.command(description='Start the music_bot playing on the given server')
+  async def play(self, channel : str):
+    print(channel)
+    voice = await self.bot.join_voice_channel(channel)
+    if self.player is None:
+      video = playlist.dequeue()
+      if video:
+        self.player = voice.create_ytdl_player(video.url)
+    self.player.start()
 
 def setup(bot):
   bot.add_cog(Jukebox(bot))
